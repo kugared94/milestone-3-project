@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>im extending the base template! </h2>
+    
+    {% for task in tasks %}
+        {{ tasks.category_name }}<br>
+        {{ task.recipe_type }}<br>
+        {{ task.recipe_name }}<br>
+    {% endfor %}
+
+{% endblock %}
