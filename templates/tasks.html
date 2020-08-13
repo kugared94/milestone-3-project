@@ -2,9 +2,10 @@
 {% block content %}
 
     <h2>im extending the base template! </h2>
-    
+
     {% for task in tasks %}
-        {{ tasks.category_name }}<br>
+        {{ task.task_name }}<br>
+        {{ task.category_name }}<br>
         {{ task.recipe_type }}<br>
         {{ task.recipe_name }}<br>
     {% endfor %}
