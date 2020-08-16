@@ -18,11 +18,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-
 @app.route("/")
 @app.route("/get_tasks")
 def get_tasks():
-    tasks = mongo.db.recipe.find()
+    tasks = list(mongo.db.recipe.find())
     return render_template("tasks.html", tasks=tasks)
 
 @app.route("/register", methods=["GET", "POST"])
