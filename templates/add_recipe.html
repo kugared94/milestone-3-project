@@ -17,9 +17,14 @@
 
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fas fa-flag prefix black-text text-darken-4 prefix"></i>
-                    <input id="category" type="text" class="validate" required>
-                    <label for="category">Category</label>
+                    <i class="fas fa-flag prefix black-text text-darken-4"></i>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Select Category</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">Recipe Category</label>
                 </div>
             </div>
 
