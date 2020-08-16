@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <h3 class="black-text text-darken-4 center-align">All Recipe !</h3>
+
     <ul class="collapsible">
         {% for task in tasks %}
         <li>
@@ -10,9 +12,11 @@
             </div>
 
             <div class="collapsible-body">
-                <p>{{ task.recipe_type }}</p>
-                <p>{{ task.recipe_ingredient }}</p>
+                <p>{{ task.type_of_food }}</p>
                 <p>{{ task.recipe_description }}</p>
+                <p>{{ task.recipe_ingredient }}</p>
+                <p>{{ task.recipe_directions }}</p>
+                <p><em>by: {{ task.created_by }}</em></p>
             </div>
         </li>
         {% endfor %}
