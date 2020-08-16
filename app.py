@@ -34,8 +34,15 @@ def register():
                 flash("Username Already Exists")
                 return redirect(url_for("register"))
 
+            existing_user = mongo.db.users.find_one(
+                {"email": request.form.get("email").lower()})
+            if existing_user:
+                flash("E-mail Already Exists")
+                return redirect(url_for("register"))
+
             register = {
                 "username": request.form.get("username").lower(),
+                "email": request.form.get("email").lower(),
                 "password": generate_password_hash(request.form.get("password"))
             }
             mongo.db.users.insert_one(register)
