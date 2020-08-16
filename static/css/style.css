@@ -1,3 +1,10 @@
-body {
-    background-color: red;
+nav .brand-logo{
+    font-size: 17px;
+    padding-left: 10px;
+}
+
+nav .sidenav-trigger i{
+    height: 56px;
+    line-height: 56px;
+    padding-left: 10px;
 }
