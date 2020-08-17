@@ -9,9 +9,13 @@
                 <div class="input-field col s12">
                     <i class="fas fa-flag prefix black-text text-darken-4"></i>
                     <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Select Category</option>
+                        <option value="" disabled>Select Category</option>
                         {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% if category.category_name == task.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                     <label for="category_name">Recipe Category</label>
@@ -21,7 +25,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pizza-slice prefix black-text text-darken-4"></i>
                     <input id="type_of_food" name="type_of_food" minlength="1" maxlength="20" 
-                        type="text" class="validate" required>
+                        value="{{ task.type_of_food }}" type="text" class="validate" required>
                     <label for="type_of_food">Type of Food</label>
                 </div>
             </div>
@@ -29,7 +33,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-utensils prefix black-text text-darken-4"></i>
                     <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" 
-                        type="text" class="validate" required>
+                        value="{{ task.recipe_name }}" type="text" class="validate" required>
                     <label for="recipe_name">Recipe Name</label>
                 </div>
             </div>
@@ -37,7 +41,9 @@
                 <div class="input-field col s12">
                     <i class="fas fa-file-alt prefix black-text text-darken-4 prefix"></i>
                     <textarea id="recipe_description" name="recipe_description" minlength="5"
-                         maxlength="500" class="materialize-textarea validate" required></textarea>
+                         maxlength="500" class="materialize-textarea validate" required>
+                    {{- task.recipe_description -}} 
+                    </textarea>
                     <label for="recipe_description">Recipe Description</label>
                 </div>
             </div>
@@ -45,7 +51,9 @@
                 <div class="input-field col s12">
                     <i class="fas fa-fish prefix black-text text-darken-4 prefix"></i>
                     <textarea id="recipe_ingredient" name="recipe_ingredient" minlength="5"
-                         class="materialize-textarea validate" required></textarea>
+                         class="materialize-textarea validate" required>
+                    {{- task.recipe_ingredient -}}     
+                    </textarea>
                     <label for="recipe_ingredient">Recipe Ingredient</label>
                 </div>
             </div>
@@ -53,12 +61,17 @@
                 <div class="input-field col s12">
                     <i class="fas fa-blender prefix black-text text-darken-4 prefix"></i>
                     <textarea id="recipe_directions" name="recipe_directions" minlength="5"
-                         class="materialize-textarea validate" required></textarea>
+                         class="materialize-textarea validate" required>
+                    {{- task.recipe_directions -}}     
+                    </textarea>
                     <label for="recipe_directions">Recipe Directions</label>
                 </div>
             </div>
             <div class="row">
                 <div class="col s12 center-align">
+                    <a href="{{ url_for('get_tasks')}}" class="btn-large black">
+                        Cancel <i class="fas fa-times-circle right"></i>                 
+                    </a>
                     <button type="submit" class="btn-large teal darken-1 text-shadow">
                         Edit Recipe! <i class="fas fa-edit right"></i>
                     </button>
