@@ -6,7 +6,7 @@
     <div class="row">
         {% for category in categories %}
             <div class="col s12 m6">
-                <div class="card blue-grey darken-1">
+                <div class="card #212121 grey darken-4">
                     <div class="card-content white-text center-align">
                         <span class="card-title">{{ category.category_name }}</span>
                     </div>
@@ -17,6 +17,14 @@
                 </div>
             </div>
         {% endfor %}
+    </div>
+
+    <div class="row s12 m12">
+        <div class="col s12 center-align">
+            <a href="{{ url_for('add_category') }}" class="btn-large teal darken-2 text-shadow">
+                Add Category <i class="fas fa-plus-square right"></i>
+            </a>
+        </div>
     </div>
 
 {% endblock %}
