@@ -102,9 +102,10 @@ def add_task():
             "category_name": request.form.get("category_name"),
             "type_of_food": request.form.get("type_of_food"),
             "recipe_name": request.form.get("recipe_name"),
-            "recipe_description": request.form.getlist("recipe_description"),
-            "recipe_ingredient": request.form.getlist("recipe_ingredient"),
-            "recipe_directions": request.form.getlist("recipe_directions"),
+            "recipe_description": request.form.get("recipe_description"),
+            "recipe_ingredient": request.form.get("recipe_ingredient"),
+            "recipe_directions": request.form.get("recipe_directions"),
+            "recipe_image": request.form.get("image_display"),
             "created_by": session["user"]
         }
         mongo.db.recipe.insert_one(task)
@@ -123,13 +124,15 @@ def edit_task(task_id):
             "category_name": request.form.get("category_name"),
             "type_of_food": request.form.get("type_of_food"),
             "recipe_name": request.form.get("recipe_name"),
-            "recipe_description": request.form.getlist("recipe_description"),
-            "recipe_ingredient": request.form.getlist("recipe_ingredient"),
-            "recipe_directions": request.form.getlist("recipe_directions"),
+            "recipe_description": request.form.get("recipe_description"),
+            "recipe_ingredient": request.form.get("recipe_ingredient"),
+            "recipe_directions": request.form.get("recipe_directions"),
+            "recipe_image": request.form.get("image_display"),
             "created_by": session["user"]
         }
         mongo.db.recipe.update({"_id": ObjectId(task_id)}, submit)
         flash("Recipe Successfully Updated")
+        return redirect(url_for("get_tasks"))
 
     task = mongo.db.recipe.find_one({"_id": ObjectId(task_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
