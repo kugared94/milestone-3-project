@@ -99,12 +99,10 @@ The Mad's Lab project made use of several branches for development, testing and 
 
 **Media**
 * Image
-  - Most the building images in this project is own by Muhammad Syafiq previous architecture degree project.
-  - The personal computer image by Muhammad Syafiq life experience.
-  - The Google Images and are used for project purposes only.
+  - Most of the image basiccaly on this website page.
   
 **Code**
-* Reference code for the html and css are referred from W3School post. 
+* Reference code for the html and css are referred from W3School and materialize. 
 
 ## Acknowledgements
 Special thanks to:
