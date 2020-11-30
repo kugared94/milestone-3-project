@@ -1,112 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="profile-body">
-        <div class="row">
-            <div class="col s12 m10 offset-m1">
-                <div class="card-panel">
-                    <h3 class="center-align tex-darken 4">
-                        {{ username }}'s Profile
-                    </h3>
-                </div>    
+    <div class="row">
+        <form class="col s12 m8 offset-m2">
+            <div class="card-panel">
+                <h3 class="center-align black-text text-darken-4">
+                    {{ username }}'s Profile
+                </h3>
             </div>
-        </div>
-
-        <div class="container">
-            <div class="profile-header">
-
-                <div class="profile-img">
-                    <img src="{{ url_for('static', filename='image/try.jpg') }}" width="200" alt="user-image">
-                </div>
-
-                <div class="profile-nav-info">
-                    <h3 class="user-name">{{ username }}</h3>
-                </div>
-
-                <div class="address">
-                    <p class="state">Selangor</p>
-                    <span class="country">Malaysia</span>
-                </div>
-
-                <div class="profile-option">
-                    <div class="notification">
-                        <i class="fa fa-bell"></i>
-                        <span class="alert-message"></span>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="main-bd">
-                <div class="left-side">
-                    <div class="profile-side">
-                        <p class="phone-number"><i class="fa fa-phone"></i>+60123456789</p>
-
-                        <p class="user-mail"><i class="fa fa-envelope"></i>{{ email }}</p>
-
-                        <div class="user-bio">
-                            <h3>Bio</h3>
-                            <p class="bio">I'm still beginner.</p>
-                        </div>
-
-                        <div class="profile-button">
-
-                            <button class="chatbtn">
-                                <i class="fa fa-comment"></i>Chat
-                            </button>
-
-                            <button class="createbtn">
-                                <i class="fa fa-plus">
-                                    Create
-                                </i>
-                            </button>
-                        </div>
-
-                        <div class="user-rating">
-                            <h3 class="rating">3.5</h3>
-                            <div class="rate">
-                                <div class="stars">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-
-                                <span class="no-user">
-                                    <span>123</span>
-                                    &nbsp;&nbsp;
-                                    reviews
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="right-side">
-
-                        <div class="nav">
-                            <ul>
-                                <li onclick="tabs(0)" class="user-post active">Posts</li>
-                                <li onclick="tabs(1)" class="user-setting">Settings</li>
-                            </ul>
-                        </div>
-
-                        <div class="profile-body">
-                            <div class="profile-posts tab">
-                                <h1>Your Posts</h1>
-                                <p>recipe</p>
-                            </div>
-
-                            <div class="profile-settings tab">
-                                <h1>Account Setting</h1>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 
 {% endblock %}
